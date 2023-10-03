@@ -1,7 +1,9 @@
+import { Layout } from "../../components/Layout";
+
 function MyAccount() {
   return (
     <>
-      <div className="App">MyAccount</div>
+      <Layout className="App">MyAccount</Layout>
     </>
   );
 }

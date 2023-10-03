@@ -1,7 +1,9 @@
+import { Layout } from "../../components/Layout";
+
 function SignIn() {
   return (
     <>
-      <div className="App">SignIn</div>
+      <Layout className="App">SignIn</Layout>
     </>
   );
 }
