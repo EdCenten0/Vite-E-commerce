@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
 import { apiUrl } from "../../api/api";
+import { ProductDetail } from "../../components/ProductDetail/ProductDetail";
 
 function Home() {
   const [items, setItems] = useState(null);
@@ -31,6 +32,7 @@ function Home() {
             return <Card data={item} key={item.id} />;
           })}
         </div>
+        <ProductDetail></ProductDetail>
       </Layout>
     </>
   );

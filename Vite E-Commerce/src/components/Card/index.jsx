@@ -1,3 +1,4 @@
+import { PlusIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../contexts";
 
@@ -20,7 +21,7 @@ function Card(data) {
           }}
           className="absolute m-2 top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full"
         >
-          +
+          <PlusIcon className="h-6 w-6 text-black-500s" />
         </button>
       </figure>
       <p className="flex justify-between">
