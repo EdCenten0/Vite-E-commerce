@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
 import { apiUrl } from "../../api/api";
-import { ProductDetail } from "../../components/ProductDetail/ProductDetail";
+import { ProductDetail } from "../../components/ProductDetail/index";
 
 function Home() {
   const [items, setItems] = useState(null);
