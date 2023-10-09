@@ -14,7 +14,7 @@ function Card(data) {
       onClick={() => {
         showProduct(data);
       }}
-      className="bg-white cursor-pointer w-56 h-60 rounded-lg"
+      className="bg-white cursor-pointer w-56 h-60 rounded-lg  active:scale-110 transition ease duration-75"
     >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-sm m-1 px-2">
