@@ -3,9 +3,13 @@ import { createContext, useState } from "react";
 const ShoppingCartContext = createContext();
 
 function ShoopingCartProvider({ children }) {
+  // ShoppingCart - Counter
   const [count, setCount] = useState(0);
+
+  // Check product detail state
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
 
+  //Opening and closing product detail
   const openProductDetail = () => {
     setIsProductDetailOpen(true);
   };
@@ -13,6 +17,9 @@ function ShoopingCartProvider({ children }) {
   const closeProductDetail = () => {
     setIsProductDetailOpen(false);
   };
+
+  // Product Detail - Product to show
+  const [productToShow, setProductToShow] = useState({});
 
   return (
     <ShoppingCartContext.Provider
@@ -22,6 +29,8 @@ function ShoopingCartProvider({ children }) {
         openProductDetail,
         closeProductDetail,
         isProductDetailOpen,
+        productToShow,
+        setProductToShow,
       }}
     >
       {children}
