@@ -20,6 +20,7 @@ function ShoopingCartProvider({ children }) {
 
   // Product Detail - Product to show
   const [productToShow, setProductToShow] = useState({});
+  const [cartProducts, setCartProducts] = useState([]);
 
   return (
     <ShoppingCartContext.Provider
@@ -31,6 +32,8 @@ function ShoopingCartProvider({ children }) {
         isProductDetailOpen,
         productToShow,
         setProductToShow,
+        cartProducts,
+        setCartProducts,
       }}
     >
       {children}

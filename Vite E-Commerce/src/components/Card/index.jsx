@@ -9,6 +9,12 @@ function Card(data) {
     context.openProductDetail();
     context.setProductToShow(productData);
   };
+
+  const addProductToCar = (productData) => {
+    context.setCount(context.count + 1);
+    context.setCartProducts([...context.cartProducts, productData]);
+  };
+
   return (
     <div
       onClick={() => {
@@ -25,13 +31,13 @@ function Card(data) {
           src={data.data.images[0]}
           alt={data.data.title}
         />
-        <button
-          onClick={() => {
-            context.setCount(context.count + 1);
-          }}
-          className="absolute m-2 top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full"
-        >
-          <PlusIcon className="h-6 w-6 text-black-500s" />
+        <button className="absolute m-2 top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full">
+          <PlusIcon
+            onClick={() => {
+              addProductToCar();
+            }}
+            className="h-6 w-6 text-black-500s"
+          />
         </button>
       </figure>
       <p className="flex justify-between">

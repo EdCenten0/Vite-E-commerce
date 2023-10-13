@@ -41,7 +41,6 @@ function ProductDetail() {
 
         <div className="flex flex-col items-center gap-4 ">
           <img
-            ref={nodeRef}
             className=" w-4/5 h-full rounded-lg"
             src={
               context.productToShow.data?.images
