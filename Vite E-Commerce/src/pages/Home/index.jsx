@@ -22,8 +22,6 @@ function Home() {
     fetchData();
   }, []);
 
-  // console.log(items);
-
   return (
     <>
       <Layout>

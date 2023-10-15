@@ -16,7 +16,6 @@ function Card(data) {
     context.setCartProducts([...context.cartProducts, productData]);
     context.closeProductDetail();
     context.openCheckOutSideMenu();
-    console.log(context.cartProducts);
   };
 
   const renderIcon = (id) => {
