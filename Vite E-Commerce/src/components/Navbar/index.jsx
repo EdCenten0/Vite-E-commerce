@@ -84,7 +84,14 @@ function Navbar() {
         </li>
         <li>
           <p className="flex gap-2">
-            <ShoppingCartIcon className="h-6 w-6 text-black-500" />{" "}
+            <ShoppingCartIcon
+              // onClick={
+              //   context.isCheckoutSideMenuOpen
+              //     ? context.closeCheckOutSideMenu()
+              //     : context.openCheckOutSideMenu()
+              // }
+              className="h-6 w-6 text-black-500"
+            />{" "}
             {context.count}
           </p>
         </li>
