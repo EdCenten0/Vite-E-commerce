@@ -3,9 +3,6 @@ import { createContext, useState } from "react";
 const ShoppingCartContext = createContext();
 
 function ShoopingCartProvider({ children }) {
-  // ShoppingCart - Counter
-  const [count, setCount] = useState(0);
-
   // Product detail states manager
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
   const openProductDetail = () => {
@@ -31,8 +28,6 @@ function ShoopingCartProvider({ children }) {
   return (
     <ShoppingCartContext.Provider
       value={{
-        count,
-        setCount,
         openProductDetail,
         closeProductDetail,
         isProductDetailOpen,
