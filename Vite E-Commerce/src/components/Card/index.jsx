@@ -12,6 +12,7 @@ function Card(data) {
 
   const addProductToCar = (event, productData) => {
     event.stopPropagation();
+    productData.count = 0;
     context.setCartProducts([...context.cartProducts, productData]);
     context.closeProductDetail();
     context.openCheckOutSideMenu();

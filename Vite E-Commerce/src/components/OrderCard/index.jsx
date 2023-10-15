@@ -1,7 +1,9 @@
 import { XMarkIcon, PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ShoppingCartContext } from "../../contexts";
 
 function OrderCard(props) {
+  const context = useContext(ShoppingCartContext);
   const { id, title, imgUrl, price, handleDelete } = props;
   const [productCount, setProductCount] = useState(0);
 
@@ -12,6 +14,22 @@ function OrderCard(props) {
       setProductCount(productCount - 1);
     }
   };
+
+  const searchProductIndexInsideCartProducts = (id) => {
+    const obj = context.cartProducts.find((element) => element.id === id);
+    const indexOfObj = context.cartProducts.indexOf(obj);
+    console.log(obj);
+    console.log(indexOfObj);
+
+    return indexOfObj;
+  };
+
+  const increaseProductCount = () => {
+    setProductCount(productCount + 1);
+    const indexOfProduct = searchProductIndexInsideCartProducts(id);
+    context.cartProducts[indexOfProduct].count = productCount;
+  };
+
   return (
     <div className="flex justify-between items-center p-4 border border-b-gray-200">
       <div className="flex items-center gap-2">
@@ -37,7 +55,7 @@ function OrderCard(props) {
             </div>
             <PlusIcon
               onClick={() => {
-                setProductCount(productCount + 1);
+                increaseProductCount();
               }}
               className="h-6 w-6 text-black-500 cursor-pointer"
             />
