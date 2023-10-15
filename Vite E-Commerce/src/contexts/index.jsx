@@ -6,16 +6,22 @@ function ShoopingCartProvider({ children }) {
   // ShoppingCart - Counter
   const [count, setCount] = useState(0);
 
-  // Check product detail state
+  // Product detail states manager
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
-
-  //Opening and closing product detail
   const openProductDetail = () => {
     setIsProductDetailOpen(true);
   };
-
   const closeProductDetail = () => {
     setIsProductDetailOpen(false);
+  };
+
+  // checkout side menu state manager
+  const [isCheckoutSideMenuOpen, setCheckOutMenuOpen] = useState(false);
+  const openCheckOutSideMenu = () => {
+    setCheckOutMenuOpen(true);
+  };
+  const closeCheckOutSideMenu = () => {
+    setCheckOutMenuOpen(false);
   };
 
   // Product Detail - Product to show
@@ -34,6 +40,9 @@ function ShoopingCartProvider({ children }) {
         setProductToShow,
         cartProducts,
         setCartProducts,
+        isCheckoutSideMenuOpen,
+        openCheckOutSideMenu,
+        closeCheckOutSideMenu,
       }}
     >
       {children}

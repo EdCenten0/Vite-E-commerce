@@ -1,0 +1,35 @@
+.checkout-side-menu {
+  width: 360px;
+  height: calc(100vh - 68px);
+  top: 70px;
+}
+
+.checkout-side-menu::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.checkout-side-menu::-webkit-scrollbar-track-piece {
+  background: #fff;
+}
+.checkout-side-menu::-webkit-scrollbar-thumb {
+  background: #a6a5a5;
+  border: 1px solid #c7c7c7;
+  border-radius: 12px;
+}
+
+​ .fade-enter {
+  opacity: 0;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-enter-active {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 500ms;
+}

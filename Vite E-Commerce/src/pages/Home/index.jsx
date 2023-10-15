@@ -3,6 +3,7 @@ import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
 import { apiUrl } from "../../api/api";
 import { ProductDetail } from "../../components/ProductDetail/index";
+import { CheckOutSideMenu } from "../../components/CheckOutSideMenu";
 
 function Home() {
   const [items, setItems] = useState(null);
