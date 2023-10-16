@@ -25,11 +25,14 @@ function ShoopingCartProvider({ children }) {
   // Product Detail - Product to show
   const [productToShow, setProductToShow] = useState({});
   const [cartProducts, setCartProducts] = useState([]);
-  const [totalPriceOfProducts, setTotalPriceOfProducts] = useState(0);
 
+  // Total price of products
+  const [totalPriceOfProducts, setTotalPriceOfProducts] = useState(0);
   const updateTotalPriceOfProducts = () => {
     setTotalPriceOfProducts(totalPrice(cartProducts));
   };
+
+  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     console.log(cartProducts);
@@ -52,6 +55,8 @@ function ShoopingCartProvider({ children }) {
         totalPriceOfProducts,
         setTotalPriceOfProducts,
         updateTotalPriceOfProducts,
+        order,
+        setOrder,
       }}
     >
       {children}

@@ -19,6 +19,18 @@ function CheckOutSideMenu() {
     );
     context.setCartProducts(filteredProducts);
   };
+
+  const handleCheckout = () => {
+    const orderToAdd = {
+      date: "39,43,4",
+      products: context.cartProducts,
+      totalProducts: context.cartProducts.length,
+      totalPrice: context.totalPriceOfProducts,
+    };
+
+    context.setOrder([...context.order, orderToAdd]);
+    context.setCartProducts([]);
+  };
   return (
     <CSSTransition
       in={context.isCheckoutSideMenuOpen}
@@ -61,6 +73,13 @@ function CheckOutSideMenu() {
               ${context.totalPriceOfProducts}
             </span>
           </p>
+
+          <button
+            onClick={() => handleCheckout()}
+            className="border border-slate-600 pt-1 pb-1 pl-3 pr-3 rounded-xl text-white font-medium bg-black  active:bg-white active:text-black hover:bg-slate-900 hover:text-slate-100 "
+          >
+            Checkout
+          </button>
         </div>
       </aside>
     </CSSTransition>
