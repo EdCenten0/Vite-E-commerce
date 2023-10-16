@@ -13,6 +13,9 @@ function OrderCard(props) {
       setProductCount(1);
     } else {
       setProductCount(productCount - 1);
+      const indexOfProduct = searchProductIndexInsideCartProducts(id);
+      context.cartProducts[indexOfProduct].count = productCount - 1;
+      context.updateTotalPriceOfProducts();
     }
   };
 
@@ -29,7 +32,7 @@ function OrderCard(props) {
     setProductCount(productCount + 1);
     const indexOfProduct = searchProductIndexInsideCartProducts(id);
     context.cartProducts[indexOfProduct].count = productCount + 1;
-    console.log("Incrementando");
+
     context.updateTotalPriceOfProducts();
   };
 
