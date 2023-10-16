@@ -1,15 +1,16 @@
 import { XMarkIcon, PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
 import { ShoppingCartContext } from "../../contexts";
+import { totalPrice } from "../Utils";
 
 function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
   const { id, title, imgUrl, price, handleDelete } = props;
-  const [productCount, setProductCount] = useState(0);
+  const [productCount, setProductCount] = useState(1);
 
   const reduceProductCount = () => {
-    if (productCount <= 0) {
-      setProductCount(0);
+    if (productCount <= 1) {
+      setProductCount(1);
     } else {
       setProductCount(productCount - 1);
     }
@@ -27,7 +28,9 @@ function OrderCard(props) {
   const increaseProductCount = () => {
     setProductCount(productCount + 1);
     const indexOfProduct = searchProductIndexInsideCartProducts(id);
-    context.cartProducts[indexOfProduct].count = productCount;
+    context.cartProducts[indexOfProduct].count = productCount + 1;
+    console.log("Incrementando");
+    context.updateTotalPriceOfProducts();
   };
 
   return (
@@ -48,7 +51,7 @@ function OrderCard(props) {
               onClick={() => {
                 reduceProductCount();
               }}
-              className="h-6 w-6 text-black-500 cursor-pointer"
+              className="bg-red-200 rounded-lg h-6 w-6 text-black-500 cursor-pointer"
             />
             <div className="bg-gray-300 w-8 flex justify-center rounded-md">
               <p className="select-none">{productCount}</p>
@@ -57,7 +60,7 @@ function OrderCard(props) {
               onClick={() => {
                 increaseProductCount();
               }}
-              className="h-6 w-6 text-black-500 cursor-pointer"
+              className="bg-green-200 rounded-lg h-6 w-6 text-black-500 cursor-pointer"
             />
           </div>
         </div>

@@ -4,6 +4,7 @@ import "./styles.css";
 import { useContext, useRef } from "react";
 import { ShoppingCartContext } from "../../contexts";
 import { OrderCard } from "../OrderCard";
+import { totalPrice } from "../Utils";
 
 function CheckOutSideMenu() {
   const context = useContext(ShoppingCartContext);
@@ -52,6 +53,14 @@ function CheckOutSideMenu() {
               handleDelete={handleDelete}
             />
           ))}
+        </div>
+        <div className="fixed bottom-0 bg-white w-full border border-t-slate-400 border-l-black-400 p-2 rounded-sm">
+          <p className="">
+            <span className="font-medium mr-60">Total: </span>
+            <span className=" text-lg font-bold">
+              ${context.totalPriceOfProducts}
+            </span>
+          </p>
         </div>
       </aside>
     </CSSTransition>

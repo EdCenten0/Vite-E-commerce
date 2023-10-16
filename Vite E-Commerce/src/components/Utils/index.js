@@ -1,5 +1,16 @@
-const totalPrice = (products) => {
-  return products.reduce((sum, product) => sum + product.price, 0);
-};
+/**
+ * This function is made to calculate total price of products for an new order
+ * @param {Array} products cartProducts is an object array
+ * @returns {number} Total price of all products, this products are multiplied with their current count
+ */
 
-export { totalPrice };
+export const totalPrice = (products) => {
+  console.log("Productos antes de sumar");
+  console.log(products);
+  const total = products.reduce(
+    (count, product) => count + product.price * product.count,
+    0
+  );
+
+  return total;
+};

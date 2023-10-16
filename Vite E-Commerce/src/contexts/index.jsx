@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { totalPrice } from "../components/Utils";
 
 const ShoppingCartContext = createContext();
 
@@ -24,6 +25,16 @@ function ShoopingCartProvider({ children }) {
   // Product Detail - Product to show
   const [productToShow, setProductToShow] = useState({});
   const [cartProducts, setCartProducts] = useState([]);
+  const [totalPriceOfProducts, setTotalPriceOfProducts] = useState(0);
+
+  const updateTotalPriceOfProducts = () => {
+    setTotalPriceOfProducts(totalPrice(cartProducts));
+  };
+
+  useEffect(() => {
+    console.log(cartProducts);
+    updateTotalPriceOfProducts();
+  }, [cartProducts]);
 
   return (
     <ShoppingCartContext.Provider
@@ -38,6 +49,9 @@ function ShoopingCartProvider({ children }) {
         isCheckoutSideMenuOpen,
         openCheckOutSideMenu,
         closeCheckOutSideMenu,
+        totalPriceOfProducts,
+        setTotalPriceOfProducts,
+        updateTotalPriceOfProducts,
       }}
     >
       {children}
