@@ -36,6 +36,14 @@ function OrderCard(props) {
     context.updateTotalPriceOfProducts();
   };
 
+  let renderXMarkIcon;
+
+  if (handleDelete) {
+    renderXMarkIcon = (
+      <XMarkIcon className="h-6 w-6 text-black-500 cursor-pointer animate-pulse" />
+    );
+  }
+
   return (
     <div className="flex justify-between items-center p-4 border border-b-gray-200">
       <div className="flex items-center gap-2">
@@ -70,7 +78,7 @@ function OrderCard(props) {
       </div>
 
       <div onClick={() => handleDelete(id)} className="flez items-center gap-2">
-        <XMarkIcon className="h-6 w-6 text-black-500 cursor-pointer animate-pulse" />
+        {renderXMarkIcon}
       </div>
     </div>
   );

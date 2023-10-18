@@ -1,7 +1,8 @@
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { CSSTransition } from "react-transition-group";
-import "./styles.css";
 import { useContext, useRef } from "react";
+import { Link } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+import { XMarkIcon } from "@heroicons/react/24/solid";
+import "./styles.css";
 import { ShoppingCartContext } from "../../contexts";
 import { OrderCard } from "../OrderCard";
 import { totalPrice } from "../Utils";
@@ -22,7 +23,7 @@ function CheckOutSideMenu() {
 
   const handleCheckout = () => {
     const orderToAdd = {
-      date: "39,43,4",
+      date: "01.12.2024",
       products: context.cartProducts,
       totalProducts: context.cartProducts.length,
       totalPrice: context.totalPriceOfProducts,
@@ -74,12 +75,16 @@ function CheckOutSideMenu() {
             </span>
           </p>
 
-          <button
-            onClick={() => handleCheckout()}
-            className="border border-slate-600 pt-1 pb-1 pl-3 pr-3 rounded-xl text-white font-medium bg-black  active:bg-white active:text-black hover:bg-slate-900 hover:text-slate-100 "
-          >
-            Checkout
-          </button>
+          <Link to={"/my-orders/last"}>
+            <button
+              onClick={() => {
+                handleCheckout();
+              }}
+              className="border border-slate-600 pt-1 pb-1 pl-3 pr-3 rounded-xl text-white font-medium bg-black  active:bg-white active:text-black hover:bg-slate-900 hover:text-slate-100 "
+            >
+              Checkout
+            </button>
+          </Link>
         </div>
       </aside>
     </CSSTransition>
