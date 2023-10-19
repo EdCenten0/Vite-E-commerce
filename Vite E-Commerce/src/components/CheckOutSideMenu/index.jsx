@@ -43,7 +43,7 @@ function CheckOutSideMenu() {
         ref={nodeRef}
         className={` ${
           context.isCheckoutSideMenuOpen ? "none" : "hidden"
-        } checkout-side-menu flex flex-col fixed bg-white right-0 border border-black rounded-lg overflow-auto`}
+        } checkout-side-menu box-border flex flex-col fixed bg-white right-0 border border-black rounded-lg overflow-auto`}
       >
         <div className="flex justify-between  items-center p-6">
           <h2 className="font-medium text-xl ">My Order</h2>{" "}
@@ -67,10 +67,10 @@ function CheckOutSideMenu() {
             />
           ))}
         </div>
-        <div className="fixed bottom-0 bg-white w-full border border-t-slate-400 border-l-black-400 p-2 rounded-sm">
+        <div className="fixed bottom-0 bg-white .checkout-section border border-t-slate-400 border-l-black-400 p-2 rounded-sm">
           <p className="">
-            <span className="font-medium mr-60">Total: </span>
-            <span className=" text-lg font-bold">
+            <span className="font-medium mr-60 select-none">Total: </span>
+            <span className=" text-lg font-bold ">
               ${context.totalPriceOfProducts}
             </span>
           </p>
@@ -79,8 +79,9 @@ function CheckOutSideMenu() {
             <button
               onClick={() => {
                 handleCheckout();
+                context.closeCheckOutSideMenu();
               }}
-              className="border border-slate-600 pt-1 pb-1 pl-3 pr-3 rounded-xl text-white font-medium bg-black  active:bg-white active:text-black hover:bg-slate-900 hover:text-slate-100 "
+              className=" w-full border border-slate-600 pb-1  rounded-md text-white font-medium bg-black  active:bg-white active:text-black hover:bg-slate-900 hover:text-slate-100 "
             >
               Checkout
             </button>

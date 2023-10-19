@@ -1,7 +1,11 @@
 .checkout-side-menu {
-  width: 360px;
   height: calc(100vh - 68px);
   top: 70px;
+}
+
+.checkout-side-menu,
+.checkout-section {
+  width: 360px;
 }
 
 .checkout-side-menu::-webkit-scrollbar {
