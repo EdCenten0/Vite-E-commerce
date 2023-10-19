@@ -11,15 +11,18 @@ function MyOrder() {
     <>
       <Layout className="App">MyOrder</Layout>
       <div>
-        {context.order?.slice(-1)[0].products?.map((order) => (
-          <OrderCard
-            key={order.id}
-            id={order.id}
-            title={order.title}
-            price={order.price}
-            imgUrl={order.images[0]}
-          />
-        ))}
+        {context.order?.slice(-1)[0].products?.map((order) => {
+          return (
+            <OrderCard
+              key={order.id}
+              id={order.id}
+              title={order.title}
+              price={order.price}
+              imgUrl={order.images[0]}
+              countOfProducts={order.count}
+            />
+          );
+        })}
       </div>
     </>
   );

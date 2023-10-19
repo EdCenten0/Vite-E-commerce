@@ -5,23 +5,28 @@ import { totalPrice } from "../Utils";
 
 function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
-  const { id, title, imgUrl, price, handleDelete } = props;
-  const [productCount, setProductCount] = useState(1);
+  const { id, title, imgUrl, price, countOfProducts, handleDelete } = props;
+  const [productCount, setProductCount] = useState(
+    countOfProducts != undefined ? countOfProducts : 1
+  );
 
   const reduceProductCount = () => {
     if (productCount <= 1) {
       setProductCount(1);
     } else {
       setProductCount(productCount - 1);
-      const indexOfProduct = searchProductIndexInsideCartProducts(id);
+      const indexOfProduct = searchProductIndexInsideArray(
+        id,
+        context.cartProducts
+      );
       context.cartProducts[indexOfProduct].count = productCount - 1;
       context.updateTotalPriceOfProducts();
     }
   };
 
-  const searchProductIndexInsideCartProducts = (id) => {
-    const obj = context.cartProducts.find((element) => element.id === id);
-    const indexOfObj = context.cartProducts.indexOf(obj);
+  const searchProductIndexInsideArray = (id, arr) => {
+    const obj = arr.find((element) => element.id === id);
+    const indexOfObj = arr.indexOf(obj);
     console.log(obj);
     console.log(indexOfObj);
 
@@ -30,20 +35,32 @@ function OrderCard(props) {
 
   const increaseProductCount = () => {
     setProductCount(productCount + 1);
-    const indexOfProduct = searchProductIndexInsideCartProducts(id);
+    const indexOfProduct = searchProductIndexInsideArray(
+      id,
+      context.cartProducts
+    );
     context.cartProducts[indexOfProduct].count = productCount + 1;
 
     context.updateTotalPriceOfProducts();
+    // setProductCount(productCount);
   };
 
   let renderXMarkIcon;
-
   if (handleDelete) {
     renderXMarkIcon = (
       <XMarkIcon className="h-6 w-6 text-black-500 cursor-pointer animate-pulse" />
     );
+    // if (countOfProducts != 1) {
+    //   setProductCount(countOfProducts);
+    // }
   }
 
+  console.log("Productos del carrito:");
+  console.log(context.cartProducts);
+  console.log("product count ", productCount);
+  console.log("Productos de la orden");
+  console.log(context.order);
+  console.log("Productos de ", title, ", COUNT: ", countOfProducts);
   return (
     <div className="flex justify-between items-center p-4 border border-b-gray-200">
       <div className="flex items-center gap-2">
