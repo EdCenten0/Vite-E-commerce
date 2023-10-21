@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { totalPrice } from "../components/Utils";
+import { apiUrl } from "../api/api";
 
 const ShoppingCartContext = createContext();
 
@@ -44,11 +45,42 @@ function ShoopingCartProvider({ children }) {
   const [order, setOrder] = useState([]);
 
   // ------------------------Others---------------------------------------------------------------
+  const [items, setItems] = useState(null);
+  const [filteredItems, setFilteredItems] = useState(null);
+  const [searchTitleBar, setSearchTitleBar] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/products`);
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     console.log(cartProducts);
     updateTotalPriceOfProducts();
   }, [cartProducts]);
+
+  const filteredItemsByTitle = (items, searchByTitle) => {
+    return items?.filter((item) =>
+      item.title.toLowerCase().includes(searchByTitle.toLowerCase())
+    );
+  };
+
+  useEffect(() => {
+    if (searchTitleBar) {
+      setFilteredItems(filteredItemsByTitle(items, searchTitleBar));
+    }
+  }, [items, searchTitleBar]);
+
+  console.log(filteredItems);
 
   // --------------------------Elements return--------------------------------
   return (
@@ -69,6 +101,12 @@ function ShoopingCartProvider({ children }) {
         updateTotalPriceOfProducts,
         order,
         setOrder,
+        items,
+        setItems,
+        searchTitleBar,
+        setSearchTitleBar,
+        filteredItems,
+        setFilteredItems,
       }}
     >
       {children}

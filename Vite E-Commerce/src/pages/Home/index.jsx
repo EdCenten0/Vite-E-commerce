@@ -1,36 +1,50 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
 import { apiUrl } from "../../api/api";
 import { ProductDetail } from "../../components/ProductDetail/index";
 import { CheckOutSideMenu } from "../../components/CheckOutSideMenu";
+import { ShoppingCartContext } from "../../contexts";
 
 function Home() {
-  const [items, setItems] = useState(null);
+  const context = useContext(ShoppingCartContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${apiUrl}/products`);
-        const data = await response.json();
-        setItems(data);
-      } catch (error) {
-        console.log(error);
+  const renderView = () => {
+    if (context.searchTitleBar?.length > 0) {
+      if (context.filteredItems?.length > 0) {
+        return (
+          <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
+            {context.filteredItems?.map((item) => {
+              return <Card data={item} key={item.id} />;
+            })}
+          </div>
+        );
+      } else {
+        return <div>Nothing related :(</div>;
       }
-    };
-
-    fetchData();
-  }, []);
-
-  return (
-    <>
-      <Layout>
-        Home
+    } else {
+      return (
         <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-          {items?.map((item) => {
+          {context.items?.map((item) => {
             return <Card data={item} key={item.id} />;
           })}
         </div>
+      );
+    }
+  };
+  return (
+    <>
+      <Layout>
+        <div className="flex items-center justify-center  relative w-80 mb-4">
+          Home
+        </div>
+        <input
+          className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
+          type="text"
+          placeholder="Search a product"
+          onChange={(event) => context.setSearchTitleBar(event.target.value)}
+        />
+        {renderView()}
         <ProductDetail></ProductDetail>
       </Layout>
     </>
