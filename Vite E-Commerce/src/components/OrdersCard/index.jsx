@@ -1,6 +1,5 @@
 import {
   CalendarDaysIcon,
-  XMarkIcon,
   ShoppingBagIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/solid";

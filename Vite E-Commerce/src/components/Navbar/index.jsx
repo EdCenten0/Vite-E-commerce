@@ -17,7 +17,6 @@ function Navbar() {
             to="/"
             onClick={() => {
               context.setSearchByCategory("");
-              // context.setAnimationSwitch(!context.animationSwitch);
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
@@ -29,7 +28,6 @@ function Navbar() {
             to="/clothes"
             onClick={() => {
               context.setSearchByCategory("clothes");
-              // context.setAnimationSwitch(!context.animationSwitch);
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
@@ -41,7 +39,6 @@ function Navbar() {
             to="/electronics"
             onClick={() => {
               context.setSearchByCategory("electronics");
-              // context.setAnimationSwitch(!context.animationSwitch);
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
@@ -53,7 +50,6 @@ function Navbar() {
             to="/furnitures"
             onClick={() => {
               context.setSearchByCategory("furnitures");
-              // context.setAnimationSwitch(!context.animationSwitch);
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
@@ -65,7 +61,6 @@ function Navbar() {
             to="/toys"
             onClick={() => {
               context.setSearchByCategory("toys");
-              // context.setAnimationSwitch(!context.animationSwitch);
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
@@ -77,7 +72,6 @@ function Navbar() {
             to="/others"
             onClick={() => {
               context.setSearchByCategory("others");
-              // context.setAnimationSwitch(!context.animationSwitch);
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
@@ -93,9 +87,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/my-orders"
-            onClick={() => {
-              // context.setAnimationSwitch(!context.animationSwitch);
-            }}
+            onClick={() => {}}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <p>My Orders</p>

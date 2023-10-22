@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import { Layout } from "../../components/Layout";
 import { OrdersCard } from "../../components/OrdersCard";
 import { ShoppingCartContext } from "../../contexts";

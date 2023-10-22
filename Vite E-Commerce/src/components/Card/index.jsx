@@ -1,5 +1,4 @@
 import { PlusIcon, CheckIcon } from "@heroicons/react/24/solid";
-import { CSSTransition } from "react-transition-group";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../contexts";
 import "./styles.css";

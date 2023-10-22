@@ -1,10 +1,5 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import {
-  SwitchTransition,
-  CSSTransition,
-  Transition,
-  TransitionGroup,
-} from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import "./styles.css";
 import { useContext, useRef } from "react";
 import { ShoppingCartContext } from "../../contexts";

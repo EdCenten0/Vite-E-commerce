@@ -1,5 +1,4 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
-import "./App.css";
 import { ShoopingCartProvider } from "../../contexts";
 import Home from "./../Home/index";
 import MyAccount from "../MyAccount";
