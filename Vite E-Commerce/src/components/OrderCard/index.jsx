@@ -27,8 +27,6 @@ function OrderCard(props) {
   const searchProductIndexInsideArray = (id, arr) => {
     const obj = arr.find((element) => element.id === id);
     const indexOfObj = arr.indexOf(obj);
-    console.log(obj);
-    console.log(indexOfObj);
 
     return indexOfObj;
   };
@@ -42,7 +40,6 @@ function OrderCard(props) {
     context.cartProducts[indexOfProduct].count = productCount + 1;
 
     context.updateTotalPriceOfProducts();
-    // setProductCount(productCount);
   };
 
   let renderXMarkIcon;
@@ -50,17 +47,8 @@ function OrderCard(props) {
     renderXMarkIcon = (
       <XMarkIcon className="h-6 w-6 text-black-500 cursor-pointer animate-pulse" />
     );
-    // if (countOfProducts != 1) {
-    //   setProductCount(countOfProducts);
-    // }
   }
 
-  console.log("Productos del carrito:");
-  console.log(context.cartProducts);
-  console.log("product count ", productCount);
-  console.log("Productos de la orden");
-  console.log(context.order);
-  console.log("Productos de ", title, ", COUNT: ", countOfProducts);
   return (
     <div className="flex justify-between items-center p-4 border border-b-gray-200">
       <div className="flex items-center gap-2">

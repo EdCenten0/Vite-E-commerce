@@ -1,6 +1,8 @@
 import { PlusIcon, CheckIcon } from "@heroicons/react/24/solid";
+import { CSSTransition } from "react-transition-group";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../contexts";
+import "./styles.css";
 
 function Card(data) {
   const context = useContext(ShoppingCartContext);
@@ -43,11 +45,12 @@ function Card(data) {
   };
 
   return (
+    //
     <div
       onClick={() => {
         showProduct(data);
       }}
-      className="bg-white cursor-pointer w-56 h-60 rounded-lg  active:scale-110 transition ease duration-75"
+      className="Card bg-white cursor-pointer w-56 h-60 rounded-lg  active:scale-110 transition ease duration-75"
     >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-sm m-1 px-2">

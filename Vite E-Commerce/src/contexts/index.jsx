@@ -44,10 +44,11 @@ function ShoopingCartProvider({ children }) {
 
   const [order, setOrder] = useState([]);
 
-  // ------------------------Others---------------------------------------------------------------
+  // ------------------------Filter products---------------------------------------------------------------
   const [items, setItems] = useState(null);
   const [filteredItems, setFilteredItems] = useState(null);
   const [searchTitleBar, setSearchTitleBar] = useState(null);
+  const [searchByCategory, setSearchByCategory] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,9 +65,25 @@ function ShoopingCartProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    console.log(cartProducts);
     updateTotalPriceOfProducts();
   }, [cartProducts]);
+
+  const filterBy = (searchType, items, searchTitleBar, searchByCategory) => {
+    if (searchType === "BY_TITLE") {
+      return filteredItemsByTitle(items, searchTitleBar);
+    }
+    if (searchType === "BY_CATEGORY") {
+      return filteredItemsByCategory(items, searchByCategory);
+    }
+    if (searchType === "BY_TITLE_AND_CATEGORY") {
+      return filteredItemsByCategory(items, searchByCategory).filter((item) =>
+        item.title.toLowerCase().includes(searchTitleBar.toLowerCase())
+      );
+    }
+    if (!searchType) {
+      return items;
+    }
+  };
 
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter((item) =>
@@ -74,11 +91,41 @@ function ShoopingCartProvider({ children }) {
     );
   };
 
+  const filteredItemsByCategory = (items, searchByCategory) => {
+    return items?.filter((item) =>
+      item.category.name.toLowerCase().includes(searchByCategory.toLowerCase())
+    );
+  };
+
   useEffect(() => {
-    if (searchTitleBar) {
-      setFilteredItems(filteredItemsByTitle(items, searchTitleBar));
+    if (searchTitleBar && searchByCategory) {
+      setFilteredItems(
+        filterBy(
+          "BY_TITLE_AND_CATEGORY",
+          items,
+          searchTitleBar,
+          searchByCategory
+        )
+      );
     }
-  }, [items, searchTitleBar]);
+    if (searchTitleBar && !searchByCategory) {
+      setFilteredItems(
+        filterBy("BY_TITLE", items, searchTitleBar, searchByCategory)
+      );
+    }
+    if (!searchTitleBar && searchByCategory) {
+      setFilteredItems(
+        filterBy("BY_CATEGORY", items, searchTitleBar, searchByCategory)
+      );
+    }
+
+    if (!searchTitleBar && !searchByCategory) {
+      setFilteredItems(filterBy(null, items, searchTitleBar, searchByCategory));
+    }
+  }, [items, searchTitleBar, searchByCategory]);
+
+  //  -------------------------------Animations--------------------------------------
+  const [animationSwitch, setAnimationSwitch] = useState(false);
 
   console.log(filteredItems);
 
@@ -107,6 +154,10 @@ function ShoopingCartProvider({ children }) {
         setSearchTitleBar,
         filteredItems,
         setFilteredItems,
+        searchByCategory,
+        setSearchByCategory,
+        animationSwitch,
+        setAnimationSwitch,
       }}
     >
       {children}

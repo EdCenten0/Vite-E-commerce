@@ -1,7 +1,7 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { ShoopingCartProvider } from "../../contexts";
-import Home from "../Home/Index";
+import Home from "./../Home/index";
 import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
@@ -14,6 +14,26 @@ const AppRoutes = () => {
   let routes = useRoutes([
     {
       path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/clothes",
+      element: <Home />,
+    },
+    {
+      path: "/electronics",
+      element: <Home />,
+    },
+    {
+      path: "/furnitures",
+      element: <Home />,
+    },
+    {
+      path: "/toys",
+      element: <Home />,
+    },
+    {
+      path: "/others",
       element: <Home />,
     },
     {

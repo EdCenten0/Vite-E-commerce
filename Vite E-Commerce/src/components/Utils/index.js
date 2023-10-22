@@ -5,8 +5,6 @@
  */
 
 export const totalPrice = (products) => {
-  console.log("Productos antes de sumar");
-  console.log(products);
   const total = products.reduce(
     (count, product) => count + product.price * product.count,
     0

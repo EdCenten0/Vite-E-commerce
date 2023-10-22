@@ -15,6 +15,10 @@ function Navbar() {
         <li>
           <NavLink
             to="/"
+            onClick={() => {
+              context.setSearchByCategory("");
+              // context.setAnimationSwitch(!context.animationSwitch);
+            }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <p>All</p>
@@ -23,6 +27,10 @@ function Navbar() {
         <li>
           <NavLink
             to="/clothes"
+            onClick={() => {
+              context.setSearchByCategory("clothes");
+              // context.setAnimationSwitch(!context.animationSwitch);
+            }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <p>Clothes</p>
@@ -31,6 +39,10 @@ function Navbar() {
         <li>
           <NavLink
             to="/electronics"
+            onClick={() => {
+              context.setSearchByCategory("electronics");
+              // context.setAnimationSwitch(!context.animationSwitch);
+            }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <p>Electronics</p>
@@ -39,6 +51,10 @@ function Navbar() {
         <li>
           <NavLink
             to="/furnitures"
+            onClick={() => {
+              context.setSearchByCategory("furnitures");
+              // context.setAnimationSwitch(!context.animationSwitch);
+            }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <p>Furnitures</p>
@@ -47,9 +63,25 @@ function Navbar() {
         <li>
           <NavLink
             to="/toys"
+            onClick={() => {
+              context.setSearchByCategory("toys");
+              // context.setAnimationSwitch(!context.animationSwitch);
+            }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <p>Toys</p>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/others"
+            onClick={() => {
+              context.setSearchByCategory("others");
+              // context.setAnimationSwitch(!context.animationSwitch);
+            }}
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            <p>Others</p>
           </NavLink>
         </li>
       </ul>
@@ -61,6 +93,9 @@ function Navbar() {
         <li>
           <NavLink
             to="/my-orders"
+            onClick={() => {
+              // context.setAnimationSwitch(!context.animationSwitch);
+            }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <p>My Orders</p>

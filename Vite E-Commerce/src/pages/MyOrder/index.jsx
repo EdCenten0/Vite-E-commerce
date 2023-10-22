@@ -11,7 +11,6 @@ function MyOrder() {
   let index = currentPath.substring(currentPath.lastIndexOf("/") + 1);
   if (index === "last") index = context.order?.length - 1;
 
-  console.log(context.order);
   return (
     <>
       <Layout className="App">

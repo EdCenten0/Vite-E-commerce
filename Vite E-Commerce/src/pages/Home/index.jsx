@@ -1,35 +1,23 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
-import { apiUrl } from "../../api/api";
 import { ProductDetail } from "../../components/ProductDetail/index";
-import { CheckOutSideMenu } from "../../components/CheckOutSideMenu";
 import { ShoppingCartContext } from "../../contexts";
 
 function Home() {
   const context = useContext(ShoppingCartContext);
 
   const renderView = () => {
-    if (context.searchTitleBar?.length > 0) {
-      if (context.filteredItems?.length > 0) {
-        return (
-          <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-            {context.filteredItems?.map((item) => {
-              return <Card data={item} key={item.id} />;
-            })}
-          </div>
-        );
-      } else {
-        return <div>Nothing related :(</div>;
-      }
-    } else {
+    if (context.filteredItems?.length > 0) {
       return (
         <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-          {context.items?.map((item) => {
+          {context.filteredItems?.map((item) => {
             return <Card data={item} key={item.id} />;
           })}
         </div>
       );
+    } else {
+      return <div>Nothing related :(</div>;
     }
   };
   return (
