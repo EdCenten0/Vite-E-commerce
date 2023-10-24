@@ -127,8 +127,6 @@ function ShoopingCartProvider({ children }) {
   //  -------------------------------Animations--------------------------------------
   const [animationSwitch, setAnimationSwitch] = useState(false);
 
-  console.log(filteredItems);
-
   // --------------------------Elements return--------------------------------
   return (
     <ShoppingCartContext.Provider

@@ -10,7 +10,7 @@ function Home() {
   const renderView = () => {
     if (context.filteredItems?.length > 0) {
       return (
-        <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
+        <div className="grid place-items-center justify-center xl:gap-4 md:gap-3 sm:gap-2 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full max-w-screen-lg  m">
           {context.filteredItems?.map((item) => {
             return <Card data={item} key={item.id} />;
           })}

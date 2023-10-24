@@ -1,0 +1,19 @@
+.MyAccount {
+  animation-name: myAccountAnimation;
+  animation-duration: 0.9s;
+}
+
+@keyframes myAccountAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+
+    background-color: #c7c7c7;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+    background-color: none;
+  }
+}
