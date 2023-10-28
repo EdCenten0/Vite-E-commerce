@@ -50,6 +50,10 @@ function ShoopingCartProvider({ children }) {
   const [searchTitleBar, setSearchTitleBar] = useState(null);
   const [searchByCategory, setSearchByCategory] = useState(null);
 
+  const cleanTitlebarState = () => {
+    setSearchTitleBar(null);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -156,6 +160,7 @@ function ShoopingCartProvider({ children }) {
         setSearchByCategory,
         animationSwitch,
         setAnimationSwitch,
+        cleanTitlebarState,
       }}
     >
       {children}

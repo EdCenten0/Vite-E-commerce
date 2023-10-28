@@ -27,6 +27,7 @@ function Navbar() {
           <NavLink
             to="/Vite-E-commerce/"
             onClick={() => {
+              context.cleanTitlebarState();
               context.setSearchByCategory("");
               closeEveryThing();
             }}
@@ -104,6 +105,7 @@ function Navbar() {
           <NavLink
             to="/Vite-E-commerce/my-orders"
             onClick={() => {
+              context.cleanTitlebarState();
               closeEveryThing();
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -115,6 +117,7 @@ function Navbar() {
           <NavLink
             to="/Vite-E-commerce/my-account"
             onClick={() => {
+              context.cleanTitlebarState();
               closeEveryThing();
             }}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -126,6 +129,7 @@ function Navbar() {
           <p className="flex gap-2">
             <ShoppingCartIcon
               onClick={() => {
+                context.cleanTitlebarState();
                 context.isCheckoutSideMenuOpen
                   ? context.closeCheckOutSideMenu()
                   : context.openCheckOutSideMenu();
@@ -142,6 +146,7 @@ function Navbar() {
         <UserCircleIcon
           className="h-6 w-6 text-black-500 cursor-pointer"
           onClick={(event) => {
+            context.cleanTitlebarState();
             setUserMenuIsActive(!userMenuIsActive);
             context.closeCheckOutSideMenu();
             context.closeProductDetail();
@@ -169,6 +174,7 @@ function Navbar() {
                 <NavLink
                   to="/Vite-E-commerce/my-orders"
                   onClick={() => {
+                    context.cleanTitlebarState();
                     closeEveryThing();
                   }}
                   className={({ isActive }) =>
@@ -183,6 +189,7 @@ function Navbar() {
                 <NavLink
                   to="/Vite-E-commerce/my-account"
                   onClick={() => {
+                    context.cleanTitlebarState();
                     closeEveryThing();
                   }}
                   className={({ isActive }) =>
@@ -196,6 +203,7 @@ function Navbar() {
                 <p className="flex gap-2">
                   <ShoppingCartIcon
                     onClick={() => {
+                      context.cleanTitlebarState();
                       context.isCheckoutSideMenuOpen
                         ? context.closeCheckOutSideMenu()
                         : context.openCheckOutSideMenu();
