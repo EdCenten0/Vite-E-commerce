@@ -74,7 +74,7 @@ function CheckOutSideMenu() {
             </span>
           </p>
 
-          <Link to={"/my-orders/last"}>
+          <Link to={"/Vite-E-commerce/my-orders/last"}>
             <button
               onClick={() => {
                 handleCheckout();
