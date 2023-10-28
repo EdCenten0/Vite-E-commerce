@@ -3,6 +3,7 @@ import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
 import { ProductDetail } from "../../components/ProductDetail/index";
 import { ShoppingCartContext } from "../../contexts";
+import { Nothing_related } from "./nothing_related_svg";
 
 function Home() {
   const context = useContext(ShoppingCartContext);
@@ -17,7 +18,16 @@ function Home() {
         </div>
       );
     } else {
-      return <div>Nothing related :(</div>;
+      return (
+        <div className=" w-full h-full flex justify-center items-center flex-col">
+          <figure className="w-20">
+            <Nothing_related />
+          </figure>
+          <div>
+            <p className=" font-semibold">Nothing related :(</p>
+          </div>
+        </div>
+      );
     }
   };
   return (
