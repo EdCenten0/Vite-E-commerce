@@ -25,7 +25,7 @@ function Navbar() {
       <ul className="flex items-center gap-4 ">
         <li className="font-semibold text-lg hidden md:inline">
           <NavLink
-            to="/"
+            to="/Vite-E-commerce/"
             onClick={() => {
               context.setSearchByCategory("");
               closeEveryThing();
@@ -36,7 +36,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/"
+            to="/Vite-E-commerce/"
             onClick={() => {
               context.setSearchByCategory("");
               closeEveryThing();
@@ -48,7 +48,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/clothes"
+            to="/Vite-E-commerce/clothes"
             onClick={() => {
               context.setSearchByCategory("clothes");
               closeEveryThing();
@@ -60,7 +60,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/electronics"
+            to="/Vite-E-commerce/electronics"
             onClick={() => {
               context.setSearchByCategory("electronics");
               closeEveryThing();
@@ -72,7 +72,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/furnitures"
+            to="/Vite-E-commerce/furnitures"
             onClick={() => {
               context.setSearchByCategory("furnitures");
               closeEveryThing();
@@ -84,7 +84,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/toys"
+            to="/Vite-E-commerce/toys"
             onClick={() => {
               context.setSearchByCategory("toys");
               closeEveryThing();
@@ -96,7 +96,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/others"
+            to="/Vite-E-commerce/others"
             onClick={() => {
               context.setSearchByCategory("others");
               closeEveryThing();
@@ -114,7 +114,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/my-orders"
+            to="/Vite-E-commerce/my-orders"
             onClick={() => {
               closeEveryThing();
             }}
@@ -125,7 +125,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/my-account"
+            to="/Vite-E-commerce/my-account"
             onClick={() => {
               closeEveryThing();
             }}
@@ -179,7 +179,7 @@ function Navbar() {
               <li className="flex  gap-2">
                 <ArchiveBoxIcon className="h-6 w-6 text-black-500 " />
                 <NavLink
-                  to="/my-orders"
+                  to="/Vite-E-commerce/my-orders"
                   onClick={() => {
                     closeEveryThing();
                   }}
@@ -193,7 +193,7 @@ function Navbar() {
               <li className="flex  gap-2">
                 <UserIcon className="h-6 w-6 text-black-500 " />
                 <NavLink
-                  to="/my-account"
+                  to="/Vite-E-commerce/my-account"
                   onClick={() => {
                     closeEveryThing();
                   }}

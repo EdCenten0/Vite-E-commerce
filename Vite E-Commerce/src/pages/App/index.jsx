@@ -11,51 +11,51 @@ import { CheckOutSideMenu } from "../../components/CheckOutSideMenu";
 const AppRoutes = () => {
   let routes = useRoutes([
     {
-      path: "/",
+      path: "/Vite-E-commerce/",
       element: <Home />,
     },
     {
-      path: "/clothes",
+      path: "/Vite-E-commerce/clothes",
       element: <Home />,
     },
     {
-      path: "/electronics",
+      path: "/Vite-E-commerce/electronics",
       element: <Home />,
     },
     {
-      path: "/furnitures",
+      path: "/Vite-E-commerce/furnitures",
       element: <Home />,
     },
     {
-      path: "/toys",
+      path: "/Vite-E-commerce/toys",
       element: <Home />,
     },
     {
-      path: "/others",
+      path: "/Vite-E-commerce/others",
       element: <Home />,
     },
     {
-      path: "/my-order",
+      path: "/Vite-E-commerce/my-order",
       element: <MyOrder />,
     },
     {
-      path: "/my-account",
+      path: "/Vite-E-commerce/my-account",
       element: <MyAccount />,
     },
     {
-      path: "/my-orders",
+      path: "/Vite-E-commerce/my-orders",
       element: <MyOrders />,
     },
     {
-      path: "/my-orders/last",
+      path: "/Vite-E-commerce/my-orders/last",
       element: <MyOrder />,
     },
     {
-      path: "/my-orders/:id",
+      path: "/Vite-E-commerce/my-orders/:id",
       element: <MyOrder />,
     },
     {
-      path: "/*",
+      path: "/Vite-E-commerce/*",
       element: <NotFound />,
     },
   ]);
