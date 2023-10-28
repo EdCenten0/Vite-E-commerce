@@ -94,18 +94,6 @@ function Navbar() {
             <p>Toys</p>
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/Vite-E-commerce/others"
-            onClick={() => {
-              context.setSearchByCategory("others");
-              closeEveryThing();
-            }}
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            <p>Others</p>
-          </NavLink>
-        </li>
       </ul>
 
       <ul className=" items-center gap-4  hidden md:flex">
