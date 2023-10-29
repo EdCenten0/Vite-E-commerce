@@ -66,7 +66,13 @@ function OrderCard(props) {
               onClick={() => {
                 reduceProductCount();
               }}
-              className="bg-red-200 rounded-lg h-6 w-6 text-black-500 cursor-pointer"
+              className={`${
+                window.location.pathname.includes(
+                  "/Vite-E-commerce/my-orders/"
+                ) === true
+                  ? "hidden"
+                  : ""
+              } bg-red-200 rounded-lg h-6 w-6 text-black-500 cursor-pointer`}
             />
             <div className="bg-gray-300 w-8 flex justify-center rounded-md">
               <p className="select-none">{productCount}</p>
@@ -75,7 +81,13 @@ function OrderCard(props) {
               onClick={() => {
                 increaseProductCount();
               }}
-              className="bg-green-200 rounded-lg h-6 w-6 text-black-500 cursor-pointer"
+              className={`${
+                window.location.pathname.includes(
+                  "/Vite-E-commerce/my-orders/"
+                ) === true
+                  ? "hidden"
+                  : ""
+              }  bg-green-200 rounded-lg h-6 w-6 text-black-500 cursor-pointer`}
             />
           </div>
         </div>
