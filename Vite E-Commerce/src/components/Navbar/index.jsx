@@ -165,11 +165,11 @@ function Navbar() {
             } w-64 h-44 absolute bg-white border border-black rounded-lg right-0 p-2`}
           >
             <ul className="flex flex-col items-center h-full w-full justify-around">
-              <li className="flex gap-2">
-                <InboxIcon className="h-6 w-6 text-black-500 cursor-pointer" />
-                <p className="text-black/60">userintheapp@test.com</p>
+              <li className="flex gap-2 w-full ">
+                <InboxIcon className=" h-6 w-6 text-black-500 cursor-pointer" />
+                <p className="text-black/60 ">userintheapp@test.com</p>
               </li>
-              <li className="flex  gap-2">
+              <li className="flex  gap-2  w-full ">
                 <ArchiveBoxIcon className="h-6 w-6 text-black-500 " />
                 <NavLink
                   to="/Vite-E-commerce/my-orders"
@@ -184,7 +184,7 @@ function Navbar() {
                   <p>My Orders</p>
                 </NavLink>
               </li>
-              <li className="flex  gap-2">
+              <li className="flex  gap-2 w-full ">
                 <UserIcon className="h-6 w-6 text-black-500 " />
                 <NavLink
                   to="/Vite-E-commerce/my-account"
@@ -199,7 +199,7 @@ function Navbar() {
                   <p className="">My Account</p>
                 </NavLink>
               </li>
-              <li>
+              <li className="w-full ">
                 <p className="flex gap-2">
                   <ShoppingCartIcon
                     onClick={() => {
