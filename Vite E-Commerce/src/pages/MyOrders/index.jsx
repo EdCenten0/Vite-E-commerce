@@ -29,7 +29,9 @@ function MyOrders() {
               <EmptyOrdersIcon />
             </figure>
             <div>
-              <p className=" font-semibold">Nothing related :(</p>
+              <p className=" font-semibold">
+                Nothing yet, add some produicts and check them out :)
+              </p>
             </div>
           </div>
         </>
